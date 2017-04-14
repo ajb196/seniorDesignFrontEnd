@@ -25,11 +25,11 @@
       }
     }
 
-    if(isset($_GET("startStamp")) && isset($_GET("endStamp"))) {
-      $result = $conn->query("SELECT * FROM sensor_data WHERE 'Datetime' IN (" . $_GET("startStamp") . ".." . $_GET("endStamp") . ")");
-    } else {
+    //if(isset($_GET("startStamp")) && isset($_GET("endStamp"))) {
+      //$result = $conn->query("SELECT * FROM sensor_data WHERE 'Datetime' IN (" . $_GET("startStamp") . ".." . $_GET("endStamp") . ")");
+    //} else {
       $result = $conn->query("SELECT * FROM sensor_data");
-    }
+    //}
 
 
 
