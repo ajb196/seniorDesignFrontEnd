@@ -59,6 +59,7 @@ window.onload = function() {
     if (endStamp == null || startStamp == null) {
       return;
     }
+    console.log(startStamp.getTime() + "\n" + endStamp.getTime());
 
     $.getJSON("http://localhost/SeniorDesign/heatData.php?startStamp=" + (startStamp.getTime() / 1000) + "&endStamp=" + (endStamp.getTime() / 1000) , function(returned) {
 
