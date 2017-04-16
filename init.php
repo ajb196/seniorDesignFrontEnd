@@ -1,8 +1,8 @@
 <?php
 
-//$conn = new mysqli("localhost","root","test","sensor_network_db");
+$conn = new mysqli("localhost","test","test","telemetry_readings");
 
-//$result = $conn->query("DELETE FROM readings");
+$result = $conn->query("DELETE FROM readings");
 
 $conn = new mysqli("localhost","test","test","telemetry_readings");
 
