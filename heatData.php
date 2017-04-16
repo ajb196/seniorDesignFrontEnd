@@ -29,7 +29,7 @@
     }
 
     if(isset($_GET["startStamp"]) && isset($_GET["endStamp"])) {
-      $result = $conn->query("SELECT * FROM readings WHERE 'posix_time_ms' BETWEEN " . $_GET["startStamp"] . " AND " . $_GET["endStamp"]);
+      $result = $conn->query("SELECT * FROM readings WHERE 'time_in_seconds' BETWEEN " . $_GET["startStamp"] . " AND " . $_GET["endStamp"]);
     } else {
       $result = $conn->query("SELECT * FROM readings");
     }
