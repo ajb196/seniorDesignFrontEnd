@@ -10,9 +10,9 @@
     public $data = array();
   }
 
-    $conn = new mysqli("localhost","root","test","sensor_network_db");
+    $conn = new mysqli("localhost","test","test","telemetry_readings");
 
-    $result = $conn->query("SELECT MAX(X) as X, MAX(Y) as Y FROM sensor_data");
+    $result = $conn->query("SELECT MAX(X) as X, MAX(Y) as Y FROM readings");
 
     while($row = $result->fetch_assoc()) {
         $maxX = $row["X"];
@@ -29,9 +29,9 @@
     }
 
     if(isset($_GET["startStamp"]) && isset($_GET["endStamp"])) {
-      $result = $conn->query("SELECT * FROM sensor_data WHERE 'Datetime' BETWEEN " . $_GET["startStamp"] . " AND " . $_GET["endStamp"]);
+      $result = $conn->query("SELECT * FROM readings WHERE 'posix_time_ms' BETWEEN " . $_GET["startStamp"] . " AND " . $_GET["endStamp"]);
     } else {
-      $result = $conn->query("SELECT * FROM sensor_data");
+      $result = $conn->query("SELECT * FROM readings");
     }
 
 
