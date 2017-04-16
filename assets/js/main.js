@@ -12,7 +12,7 @@ window.onload = function() {
     container: document.getElementById('heatmapWrapper')
   });
 
-  $.getJSON("http://localhost/SeniorDesign/heatData.php", function(returned) {
+  $.getJSON("http://73.79.4.8/heatData.php", function(returned) {
 
     for(var i = 0; i < returned.maxX; i++) {
       for(var j = 0; j < returned.maxY; j++) {
@@ -61,7 +61,7 @@ window.onload = function() {
     }
     console.log(startStamp.getTime() + "\n" + endStamp.getTime());
 
-    $.getJSON("http://localhost/SeniorDesign/heatData.php?startStamp=" + (startStamp.getTime() / 1000) + "&endStamp=" + (endStamp.getTime() / 1000) , function(returned) {
+    $.getJSON("http://73.79.4.8/heatData.php?startStamp=" + (startStamp.getTime() / 1000) + "&endStamp=" + (endStamp.getTime() / 1000) , function(returned) {
 
       for(var i = 0; i < returned.maxX; i++) {
         for(var j = 0; j < returned.maxY; j++) {

@@ -1,10 +1,10 @@
 <?php
 
-$conn = new mysqli("localhost","root","test","sensor_network_db");
+//$conn = new mysqli("localhost","root","test","sensor_network_db");
 
-$result = $conn->query("DELETE FROM sensor_data");
+//$result = $conn->query("DELETE FROM readings");
 
-$conn = new mysqli("localhost","root","test","sensor_network_db");
+$conn = new mysqli("localhost","test","test","telemetry_readings");
 
 for ($i = 0; $i < 200; $i++) {
   $x = rand(0,600);
@@ -12,7 +12,7 @@ for ($i = 0; $i < 200; $i++) {
 
   echo $x;
 
-  if($conn->query("INSERT INTO sensor_data (ID, Datetime, X, Y) VALUES ('" . $i . "','" . (time() + rand(0, 24*60*60)) . "', '" . $x . "', '" . $y . "')") === TRUE){
+  if($conn->query("INSERT INTO readings (time_in_seconds, X, Y) VALUES ('" . $i . "','" . (time() + rand(0, 24*60*60)) . "', '" . $x . "', '" . $y . "')") === TRUE){
     echo "success <br>";
   } else {
     echo $conn->error. "<br>";
@@ -27,7 +27,7 @@ for (; $i < 300; $i++) {
 
   echo $x;
 
-if($conn->query("INSERT INTO sensor_data (ID, Datetime, X, Y) VALUES ('" . $i . "','" . (time() + rand(0, 24*60*60)) . "', '" . $x . "', '" . $y . "')") === TRUE){
+if($conn->query("INSERT INTO readings (time_in_seconds, X, Y) VALUES ('" . $i . "','" . (time() + rand(0, 24*60*60)) . "', '" . $x . "', '" . $y . "')") === TRUE){
     echo "success <br>";
   } else {
     echo $conn->error. "<br>";
@@ -43,7 +43,7 @@ for (; $i < 500; $i++) {
 
   echo $x;
 
-if($conn->query("INSERT INTO sensor_data (ID, Datetime, X, Y) VALUES ('" . $i . "','" . (time() + rand(0, 24*60*60)) . "', '" . $x . "', '" . $y . "')") === TRUE){
+if($conn->query("INSERT INTO readings (time_in_seconds, X, Y) VALUES ('" . $i . "','" . (time() + rand(0, 24*60*60)) . "', '" . $x . "', '" . $y . "')") === TRUE){
     echo "success <br>";
   } else {
     echo $conn->error. "<br>";
