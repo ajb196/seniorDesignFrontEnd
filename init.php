@@ -12,7 +12,7 @@ for ($i = 0; $i < 200; $i++) {
 
   echo $x;
 
-  if($conn->query("INSERT INTO readings (time_in_seconds, X, Y) VALUES ('" . $i . "','" . (time() + rand(0, 24*60*60)) . "', '" . $x . "', '" . $y . "')") === TRUE){
+  if($conn->query("INSERT INTO readings (x, y, time_in_seconds) VALUES ('" . $i . "','" . (time() + rand(0, 24*60*60)) . "', '" . $x . "', '" . $y . "')") === TRUE){
     echo "success <br>";
   } else {
     echo $conn->error. "<br>";
@@ -27,7 +27,7 @@ for (; $i < 300; $i++) {
 
   echo $x;
 
-if($conn->query("INSERT INTO readings (time_in_seconds, X, Y) VALUES ('" . $i . "','" . (time() + rand(0, 24*60*60)) . "', '" . $x . "', '" . $y . "')") === TRUE){
+if($conn->query("INSERT INTO readings (x, y, time_in_seconds) VALUES ('" . $i . "','" . (time() + rand(0, 24*60*60)) . "', '" . $x . "', '" . $y . "')") === TRUE){
     echo "success <br>";
   } else {
     echo $conn->error. "<br>";

@@ -1,7 +1,7 @@
 <?php
 
   header('Access-Control-Allow-Origin: *');
-  header('Access-Control-Allow-Methods: GET, POST');  
+  header('Access-Control-Allow-Methods: GET, POST');
 
   Class Map {
     public $max = 0;
@@ -12,11 +12,11 @@
 
     $conn = new mysqli("localhost","test","test","telemetry_readings");
 
-    $result = $conn->query("SELECT MAX(X) as X, MAX(Y) as Y FROM readings");
+    $result = $conn->query("SELECT MAX(x) as x, MAX(y) as y FROM readings");
 
     while($row = $result->fetch_assoc()) {
-        $maxX = $row["X"];
-        $maxY = $row["Y"];
+        $maxX = $row["x"];
+        $maxY = $row["y"];
     }
 
     $map = array();
@@ -38,9 +38,9 @@
 
     $i = 0;
     while($row = $result->fetch_assoc()) {
-        $map[$row["X"]][$row["Y"]] = $map[$row["X"]][$row["Y"]] + 1;
-        if ($map[$row["X"]][$row["Y"]] > $maxV) {
-          $maxV = $map[$row["X"]][$row["Y"]];
+        $map[$row["x"]][$row["y"]] = $map[$row["x"]][$row["y"]] + 1;
+        if ($map[$row["x"]][$row["y"]] > $maxV) {
+          $maxV = $map[$row["x"]][$row["y"]];
         }
     }
     $conn->close();
